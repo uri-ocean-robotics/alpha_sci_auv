@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Emir Cem Gezer
+    Email: emircem@uri.edu;emircem.gezer@gmail.com
+    Year: 2022
+
+    Copyright (C) 2022 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+    <!--
+        List of the simulated worlds in the 'alpha_sci_stonefish'
+    -->
+    <arg name="scenario" default="ocean_multi_agent"/>
+    <include file="$(find alpha_sci_stonefish)/launch/alpha_simulation.launch">
+        <arg name="robot_name" value=""/>
+        <arg name="scenario" value="$(arg scenario)"/>
+    </include>
+
+    <group>
+        <include file="$(find alpha_sci_bringup)/launch/include/control.launch.xml">
+            <arg name="robot_name" value="bill"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/description.launch.xml">
+            <arg name="robot_name" value="bill"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/localization.launch.xml">
+            <arg name="robot_name" value="bill"/>
+            <arg name="is_sim" value="true"/>
+        </include>
+    </group>
+
+    <group>
+        <include file="$(find alpha_sci_bringup)/launch/include/control.launch.xml">
+            <arg name="robot_name" value="emir"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/description.launch.xml">
+            <arg name="robot_name" value="emir"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/localization.launch.xml">
+            <arg name="robot_name" value="emir"/>
+            <arg name="is_sim" value="true"/>
+        </include>
+    </group>
+
+    <group>
+        <include file="$(find alpha_sci_bringup)/launch/include/control.launch.xml">
+            <arg name="robot_name" value="mingxi"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/description.launch.xml">
+            <arg name="robot_name" value="mingxi"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/localization.launch.xml">
+            <arg name="robot_name" value="mingxi"/>
+            <arg name="is_sim" value="true"/>
+        </include>
+    </group>
+
+    <group>
+        <include file="$(find alpha_sci_bringup)/launch/include/control.launch.xml">
+            <arg name="robot_name" value="lin"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/description.launch.xml">
+            <arg name="robot_name" value="lin"/>
+        </include>
+
+        <include file="$(find alpha_sci_bringup)/launch/include/localization.launch.xml">
+            <arg name="robot_name" value="lin"/>
+            <arg name="is_sim" value="true"/>
+        </include>
+    </group>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find alpha_sci_description)/rviz/config.rviz"/>
+
+</launch>

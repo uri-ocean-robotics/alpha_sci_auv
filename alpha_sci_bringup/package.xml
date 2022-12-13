@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>alpha_sci_bringup</name>
+  <version>0.0.0</version>
+  <description>The alpha_sci_bringup package</description>
+
+  <maintainer email="emircem@uri.edu">Emir Cem Gezer</maintainer>
+  <author email="emircem@uri.edu">Emir Cem Gezer</author>
+  <author email="mzhou@uri.edu">Mingxi Zhou</author>
+
+  <license>GPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>alpha_driver</depend>
+  <depend>alpha_teleop</depend>
+  <depend>alpha_sci_description</depend>
+  <depend>waterlinked_dvl</depend>
+  <depend>image_transport_plugins</depend>
+  <depend>imu_tools</depend>
+  <depend>libuvc_camera</depend>
+
+  <export>
+
+  </export>
+</package>

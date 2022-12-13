@@ -1,0 +1,80 @@
+helm_configuration:
+  frequency: 10.0
+
+finite_state_machine:
+  - name: start
+    mode: hold3
+    initial: true
+    transitions:
+      - survey_local
+      - survey_global
+      - evaluation
+      - kill
+
+  - name: survey_local
+    mode: flight
+    transitions:
+      - start
+      - kill
+
+  - name: survey_global
+    mode: flight
+    transitions:
+      - start
+      - kill
+
+  - name: kill
+    mode: idle
+    transition:
+      - start
+
+  - name: evaluation
+    mode: flight
+    transitions:
+      - start
+      - kill
+
+behaviors:
+  - name: motion_evaluation
+    plugin: helm::MotionEvaluation
+    states:
+      - { name: evaluation, priority: 1}
+
+  - name: path_local
+    plugin: helm::PathFollowing
+    states:
+      - { name: survey_local, priority: 1 }
+
+  - name: path_global
+    plugin: helm::PathFollowing
+    states:
+      - { name: survey_global, priority: 1 }
+
+  - name: depth_tracking
+    plugin: helm::DepthTracking
+    states:
+      - { name: survey_local, priority: 1 }
+      - { name: survey_global, priority: 1 }
+
+  - name: periodic_sufacing
+    plugin: helm::PeriodicSurface
+    states:
+      - {name: survey_local, priority: 2 }
+      - {name: survey_global, priority: 2 }
+
+  - name: teleop
+    plugin: helm::Teleoperation
+    states:
+      - {name: survey_local, priority: 2 }
+      - {name: survey_global, priority: 2 }
+      - {name: teleop, priority: 1 }
+
+  - name: hold_pos
+    plugin: helm::HoldPosition
+    states:
+      - {name: start, priority: 1}
+
+  - name: gps_wpt
+    plugin: helm::GpsWaypoint
+    states:
+      - {name: survey_global, priority: 1}

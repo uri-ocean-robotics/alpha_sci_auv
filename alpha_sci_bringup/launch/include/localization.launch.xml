@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Emir Cem Gezer
+    Email: emircem@uri.edu;emircem.gezer@gmail.com
+    Year: 2022
+
+    Copyright (C) 2022 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+    <arg name="robot_name" default="changeme"/>
+
+    <!--
+        In the simulation, IMU doesn't include gravitational acceleration.
+        But in the physical platform, gravitational acceleration is included.
+        robot_localization should be notified about that change. To keep
+        robot_localization configurations the same, a single parameter is
+        changed based on the base platform.
+    -->
+    <arg name="is_sim" default="false"/>
+
+    <include file="$(find alpha_localization)/launch/robot_localization_local.launch">
+        <arg name="is_sim" value="$(arg is_sim)"/>
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+    <include file="$(find alpha_localization)/launch/robot_localization_global.launch">
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+
+
+
+</launch>

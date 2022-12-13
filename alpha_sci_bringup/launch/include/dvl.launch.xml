@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Emir Cem Gezer
+    Email: emircem@uri.edu;emircem.gezer@gmail.com
+    Year: 2022
+
+    Copyright (C) 2022 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+  <arg name="robot_name" default="changeme"/>
+
+  <node ns="$(arg robot_name)" pkg="waterlinked_dvl" type="waterlinked_dvl_tcp_node" name="dvl_ros_node" output="screen">
+    <rosparam command="load" file="$(find alpha_sci_config)/config/dvl_a50.yaml"/>
+    <param name="frame_id" value="$(arg robot_name)/dvl"/>
+  </node>
+
+</launch>
+

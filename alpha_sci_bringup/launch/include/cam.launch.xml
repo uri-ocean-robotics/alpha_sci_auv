@@ -1,0 +1,20 @@
+<?xml version="0.1"?>
+<!--
+    This file is part of ALPHA AUV project.
+
+    Author: Emir Cem Gezer
+    Email: emircem@uri.edu;emircem.gezer@gmail.com
+    Year: 2022
+
+    Copyright (C) 2022 Smart Ocean Systems Laboratory
+-->
+<launch>
+
+    <arg name="robot_name" default="changeme"/>
+
+    <node ns="$(arg robot_name)" pkg="libuvc_camera" type="camera_node" name="camera_node">
+        <rosparam command="load" file="$(find alpha_sci_config)/config/uvc_cam.yaml"/>
+        <param name="frame_id" value="$(arg robot_name)/usb_cam"/>
+    </node>
+
+</launch>
