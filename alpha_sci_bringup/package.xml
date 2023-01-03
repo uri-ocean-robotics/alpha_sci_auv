@@ -12,7 +12,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>alpha_driver</depend>
-  <depend>alpha_teleop</depend>
+  <!-- <depend>alpha_teleop</depend> -->
   <depend>alpha_sci_description</depend>
   <depend>waterlinked_dvl</depend>
   <depend>image_transport_plugins</depend>
