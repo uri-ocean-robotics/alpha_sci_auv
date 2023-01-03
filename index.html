@@ -107,23 +107,23 @@ Contains configuration for RViZ.</p>
 <p>Currently MVP packages should be build from the source.
 Target platform must be Ubuntu 20.04 because of the dependencies.</p>
 <p>Pull repository and other dependencies</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_msgs
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_control
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/mvp_mission
-git clone --single-branch --branch noetic-devel https://github.com/uri-ocean-robotics/stonefish_mvp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--single-branch<span class="w"> </span>--branch<span class="w"> </span>noetic-devel<span class="w"> </span>https://github.com/uri-ocean-robotics/mvp_msgs
+git<span class="w"> </span>clone<span class="w"> </span>--single-branch<span class="w"> </span>--branch<span class="w"> </span>noetic-devel<span class="w"> </span>https://github.com/uri-ocean-robotics/mvp_control
+git<span class="w"> </span>clone<span class="w"> </span>--single-branch<span class="w"> </span>--branch<span class="w"> </span>noetic-devel<span class="w"> </span>https://github.com/uri-ocean-robotics/mvp_mission
+git<span class="w"> </span>clone<span class="w"> </span>--single-branch<span class="w"> </span>--branch<span class="w"> </span>noetic-devel<span class="w"> </span>https://github.com/uri-ocean-robotics/stonefish_mvp
 </pre></div>
 </div>
 </div>
 <div class="section" id="alpha-auv-simulation-and-hardware-installation">
 <h3>ALPHA AUV Simulation and Hardware Installation<a class="headerlink" href="#alpha-auv-simulation-and-hardware-installation" title="Permalink to this heading"></a></h3>
 <p>Pull repository and other dependencies</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/uri-ocean-robotics/alpha_auv
-<span class="nb">cd</span> alpha_auv
-git submodule update --init --recursive
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/uri-ocean-robotics/alpha_auv
+<span class="nb">cd</span><span class="w"> </span>alpha_auv
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
 </pre></div>
 </div>
 <p>Install pip and setup python3 as default</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-pip
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip
 </pre></div>
 </div>
 </div>
@@ -131,34 +131,34 @@ git submodule update --init --recursive
 <h3>Install Stonefish Simulator<a class="headerlink" href="#install-stonefish-simulator" title="Permalink to this heading"></a></h3>
 <p>Pull the stonefish simulator library repository in <strong>somewhere other than ROS workspace</strong>.
 Follow the installation instuctions at the <a class="reference external" href="https://stonefish.readthedocs.io/en/latest/install.html">Stonefish Readme</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/uri-ocean-robotics/stonefish
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/uri-ocean-robotics/stonefish
 </pre></div>
 </div>
 <p>Install the dependencies</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install libglm-dev libsdl2-dev
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libglm-dev<span class="w"> </span>libsdl2-dev
 </pre></div>
 </div>
 <p>Build the stonefish library and install it.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> stonefish
-mkdir build
-<span class="nb">cd</span> build
-cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Release ..
-make -j<span class="k">$(</span>nproc<span class="k">)</span>
-sudo make install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>stonefish
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>..
+make<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
+sudo<span class="w"> </span>make<span class="w"> </span>install
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-dependencies">
 <h3>Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this heading"></a></h3>
 <p>Install dependencies</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosdep install --from-paths src --ignore-src --rosdistro <span class="si">${</span><span class="nv">ROS_DISTRO</span><span class="si">}</span> -y
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span><span class="si">${</span><span class="nv">ROS_DISTRO</span><span class="si">}</span><span class="w"> </span>-y
 </pre></div>
 </div>
 </div>
 <div class="section" id="test-the-installation">
 <h3>Test the installation<a class="headerlink" href="#test-the-installation" title="Permalink to this heading"></a></h3>
 <p>To run the simulation</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch alpha_sci_bringup bringup_simulation.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch<span class="w"> </span>alpha_sci_bringup<span class="w"> </span>bringup_simulation.launch
 </pre></div>
 </div>
 </div>
@@ -166,15 +166,15 @@ sudo make install
 <div class="section" id="quick-start">
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h2>
 <p>Run the simulation and MVP Helm</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch alpha_sci_bringup bringup_simulation.launch
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>roslaunch<span class="w"> </span>alpha_sci_bringup<span class="w"> </span>bringup_simulation.launch
 </pre></div>
 </div>
 <p>Enable the controller</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosservice call /alpha/controller/enable
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosservice<span class="w"> </span>call<span class="w"> </span>/alpha/controller/enable
 </pre></div>
 </div>
 <p>Start the local path tracking mission</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosservice call /alpha/helm/change_state <span class="s2">&quot;state: &#39;survey_local&#39;&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosservice<span class="w"> </span>call<span class="w"> </span>/alpha/helm/change_state<span class="w"> </span><span class="s2">&quot;state: &#39;survey_local&#39;&quot;</span>
 </pre></div>
 </div>
 </div>
