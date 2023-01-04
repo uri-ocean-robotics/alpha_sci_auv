@@ -75,18 +75,87 @@ Visualization Manager:
     - Alpha: 0.5
       Class: rviz/RobotModel
       Collision Enabled: false
-      Enabled: false
+      Enabled: true
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        cg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        dvl:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        dvl_altitude:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        gps:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        heave_bow_thruster_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        heave_stern_thruster_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ifss_port:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ifss_port_swath:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ifss_starboard:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ifss_starboard_swath:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        imu:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        multibeam:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pressure:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        surge_thruster_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        sway_bow_thruster_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        usb_cam:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Name: RobotModel
       Robot Description: alpha/robot_description
       TF Prefix: alpha
       Update Interval: 0
-      Value: false
+      Value: true
       Visual Enabled: true
     - Class: rviz/TF
       Enabled: true
